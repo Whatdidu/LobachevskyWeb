@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmansur_docs=self.webpackChunkmansur_docs||[]).push([[903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/LobachevskyWeb/blog","blogTitle":"Blog","authorsListPath":"/LobachevskyWeb/blog/authors"}')}}]);
