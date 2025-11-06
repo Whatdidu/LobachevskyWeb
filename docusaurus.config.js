@@ -1,4 +1,3 @@
-
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -29,11 +28,7 @@ const config = {
           editUrl:
             'https://github.com/Whatdidu/LobachevskyWeb/edit/main/',
         },
-        blog: {
-          showReadingTime: true,
-          editUrl:
-            'https://github.com/Whatdidu/LobachevskyWeb/edit/main/blog/',
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -53,11 +48,10 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docs',
             position: 'left',
             label: 'Документация',
           },
-          {to: '/blog', label: 'Блог', position: 'left'},
           {
             href: 'https://github.com/Whatdidu/LobachevskyWeb',
             label: 'GitHub',

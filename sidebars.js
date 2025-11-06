@@ -1,30 +1,20 @@
-module.exports = {
-  tutorialSidebar: [
-    'index',
+export default {
+  docs: [
     {
       type: 'category',
       label: 'Контроллеры',
-      items: ['controllers/esp32c3-mini'],
+      items: ['controllers/mbx-a1'],
     },
     {
       type: 'category',
-      label: 'Игрушки',
-      items: ['toys/placeholder'],
+      label: 'Наборы для сборки',
+      items: ['kits/vw-beetle-kit', 'kits/mechbox-remote', 'kits/skidloader'],
     },
     {
       type: 'category',
-      label: 'Прошивка',
-      items: ['firmware/placeholder'],
+      label: 'Инструкции LEGO-technics',
+      items: ['lego/engine-4x16', 'lego/gearbox-4speed', 'lego/gearbox-6speed'],
     },
-    {
-      type: 'category',
-      label: 'BLE Команды',
-      items: ['ble/placeholder'],
-    },
-    {
-      type: 'category',
-      label: 'FAQ',
-      items: ['faq/placeholder'],
-    },
+    'about',
   ],
 };

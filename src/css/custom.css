@@ -28,3 +28,39 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.qr-right {
+  margin-left: 24px;
+  margin-bottom: 8px;
+}
+
+.about-qr-block {
+  float: right;
+  width: 200px;
+  margin-left: 24px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.about-qr-block img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.about-qr-block span {
+  font-size: 0.95em;
+}
+
+.about-qr-float {
+  float: right;
+  width: 200px;
+  margin-left: 24px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.about-qr-float img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}

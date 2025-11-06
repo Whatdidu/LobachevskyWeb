@@ -1,41 +1,138 @@
-# Website
+# Mansur Docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Документация по контроллерам, наборам и игрушкам. Сайт построен на [Docusaurus 3](https://docusaurus.io/).
 
-## Installation
+## Предпосылки
+
+- **Node.js**: >= 18 (см. поле `engines.node` в `package.json`)
+- **Менеджер пакетов**: `npm` (рекомендуется) или `yarn`
+- **GitHub Pages** для деплоя (скрипт использует пакет `gh-pages`)
+
+Проверить версии:
 
 ```bash
+node -v
+npm -v
+```
+
+## Установка зависимостей
+
+```bash
+# вариант с npm (предпочтительно)
+npm install
+
+# или с yarn
 yarn
 ```
 
-## Local Development
+## Запуск локально
 
 ```bash
+# npm
+npm run start
+
+# или yarn
 yarn start
 ```
+Откроется dev-сервер с «горячей» перезагрузкой. Изменения в `docs/`, `src/` и конфиге применяются без перезапуска.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+## Сборка продакшен-версии
 
 ```bash
+# npm
+npm run build
+
+# или yarn
 yarn build
 ```
+Готовые статические файлы появятся в директории `build/`.
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+## Локальный предпросмотр сборки
 
 ```bash
-USE_SSH=true yarn deploy
-```
+# npm
+npm run serve
 
-Not using SSH:
+# или yarn
+yarn serve
+```
+Сервер отдаёт содержимое из `build/`.
+
+## Деплой на GitHub Pages
+
+В проекте настроен скрипт деплоя через `gh-pages`:
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+# npm
+npm run deploy
+
+# или yarn
+yarn deploy
+```
+Скрипт выполнит сборку и опубликует `build/` в ветку `gh-pages` репозитория.
+
+Важно убедиться, что в `docusaurus.config.js` корректны параметры:
+- `url`: базовый URL сайта (например, `https://whatdidu.github.io`)
+- `baseUrl`: базовый путь репозитория Pages (например, `/LobachevskyWeb/`)
+- `organizationName` и `projectName`: владелец и репозиторий на GitHub
+
+Если после деплоя наблюдается 404, проверьте, что `baseUrl` совпадает с названием репозитория GitHub Pages и что GitHub Pages включён в настройках репозитория.
+
+## Структура проекта
+
+```
+mansur-docs/
+├─ docs/                # Основное содержимое документации (MD/MDX)
+│  ├─ index.md          # Точка входа в раздел Docs
+│  ├─ controllers/      # Документация по контроллерам
+│  ├─ lego/             # Документация по LEGO-модулям (моторы/коробки передач)
+│  ├─ kits/             # Наборы/комплекты
+│  └─ ...
+├─ blog/                # (опционально) записи блога, сейчас не используется
+├─ src/                 # Компоненты, страницы и стили сайта
+│  ├─ pages/            # Доп. страницы (например, главная)
+│  └─ css/              # Кастомные стили
+├─ static/              # Статические файлы (изображения, pdf и т.п.)
+│  └─ pdf/              # PDF-инструкции, доступные на сайте
+├─ docusaurus.config.js # Основной конфиг Docusaurus
+├─ sidebars.js          # Конфигурация бокового меню Docs
+├─ package.json         # Скрипты и зависимости
+└─ README.md            # Этот файл
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Как добавлять/редактировать документацию
+
+1. Создайте/отредактируйте файл в `docs/` (форматы: `.md`, `.mdx`).
+2. При необходимости добавьте пункт в сайдбар в `sidebars.js` (или используйте автогенерацию, если включена).
+3. Сохраните и проверьте локально через `npm run start`.
+4. Закоммитьте изменения и запустите деплой.
+
+Изображения и PDF удобно хранить в `static/` (например, `static/img/` или `static/pdf/`) и ссылаться на них относительными путями: `/img/filename.png`, `/pdf/manual.pdf`.
+
+## Полезные скрипты
+
+Доступные команды (см. `package.json` → `scripts`):
+- `start`: запуск локального dev-сервера
+- `build`: сборка статического сайта
+- `serve`: локальная раздача содержимого из `build/`
+- `deploy`: сборка и публикация в `gh-pages`
+- `clear`: очистка кэша Docusaurus
+- `swizzle`: кастомизация компонентов темы
+- `write-translations`: генерация файлов переводов
+- `write-heading-ids`: генерация стабильных id для заголовков
+
+## Локализация
+
+Сайт по умолчанию на русском (`i18n.defaultLocale = 'ru'`). При необходимости можно расширить список локалей в `docusaurus.config.js`.
+
+## Частые проблемы
+
+- **Node < 18**: Обновите Node.js до версии 18 или выше.
+- **404 на GitHub Pages**: Проверьте `baseUrl` и включение GitHub Pages. Для репозитория `Whatdidu/LobachevskyWeb` `baseUrl` должен быть `/LobachevskyWeb/`.
+- **Неправильные пути к статическим файлам**: Используйте абсолютные пути от корня сайта (`/img/...`, `/pdf/...`).
+
+## Контакты и ссылки
+
+- Репозиторий: `https://github.com/Whatdidu/LobachevskyWeb`
+- Главная документации локально: откройте `/docs` после запуска `start`
+
